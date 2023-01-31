@@ -1,10 +1,12 @@
 extends layout
 
 block content
-  .flex.justify-center
-    a(href="/create") 作成
+  .flex.justify-center.text-4xl
+    h このサイトはtailwindの操作を簡単に確認するためのサイトです。
+    p ほにゃらららららーーーーーー
   - var hasCreate = (creates == undefined ? false : creates.length > 0)
   if hasCreate
+    a(href="/create") 作成
     table#tableList.flex.justify-center.text-4xl
       tr
         th 名前

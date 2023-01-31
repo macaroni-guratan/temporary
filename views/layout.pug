@@ -11,7 +11,7 @@ html
   body#main.text-center.h-screen.w-screen(style='font-family: Zen Antique Soft')
     #navbar.h-24.w-full.bg-indigo-500.flex.justify-between.text-white
       a.mt-4.text-6xl.font-bold(href='/') tailwind シミュレーター
-      ul.navbar-nav
+      ul.mt-12.text-3xl
         if user
           li
             a(href="/logout") #{user.username} をログアウト
