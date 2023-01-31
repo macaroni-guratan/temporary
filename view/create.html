@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body id="main" class="text-center h-screen w-screen" style="font-family: Zen Antique Soft">
+  <div id="navbar" class="w-full bg-indigo-500 flex justify-between text-white">
+    <a class="text-6xl font-bold" href="/">LAYOUT tailwind</a>
+  </div>
+  <div class="flex h-full w-full">
+    <div class="w-full border-4 m-1 overflow-auto">
+      <div id="makeArea" class="w-auto m-1 flex flex-grow flex-wrap bg-red-300">
+        <div id="block0" class="flex w-full flex-wrap justify-center bg-white border-4"></div>
+      </div>
+    </div>
+    <div id="maker" class="mt-1 w-1/6 bg-indigo-300 overflow-y-auto">
+      <div class="border-4 m-1">
+        <div class="m-1">
+          <button onclick="preview()"
+            class="mb-1 text-white bg-gray-500 rounded hover:bg-gray-600 w-full">プレビュー</button>
+          <button onclick="addDiv()" class="text-white bg-blue-500 rounded hover:bg-blue-600 w-full">エリア作成</button>
+          <div>
+            <h class="m-1 text-white">選択エリア</h>
+            <select id="slc_div" class="w-full rounded">
+              <option value="block0">初期 block0</option>
+            </select>
+            <button onclick="deleteDiv()" class="my-1 text-white bg-red-500 rounded hover:bg-red-600 w-full">削除</button>
+          </div>
+        </div>
+      </div>
+      <div class="border-4 m-1">
+        <div class="m-1">
+          <button onclick="makeAreas()" class="my-1 text-white bg-blue-500 rounded hover:bg-blue-600 w-full">作成</button>
+          <div class="mt-1 mb-1 w-full flex item-center">
+            <div id="tmp_class_menu" class="m-1 mb-0 w-1/3 h-3 bg-blue-300" onclick="selectMenu('tmp_class')"></div>
+            <div id="tmp_class1_menu" class="m-1 mb-0 w-1/3 h-3 bg-blue-200 hover:bg-blue-400"
+              onclick="selectMenu('tmp_class1')"></div>
+            <div id="tmp_class2_menu" class="m-1 mb-0 w-1/3 h-3 bg-blue-200 hover:bg-blue-400"
+              onclick="selectMenu('tmp_class2')"></div>
+          </div>
+          <div id="tmp_class" class="m-1 h-48 bg-white overflow-y-auto flex flex-wrap"></div>
+          <div id="tmp_class1" class="m-1 h-48 bg-white overflow-y-auto flex flex-wrap hidden"></div>
+          <div id="tmp_class2" class="m-1 h-48 bg-white overflow-y-auto flex flex-wrap hidden"></div>
+          <button onclick="deleteArea()" class="my-1 text-white bg-red-500 rounded hover:bg-red-600 w-full">削除</button>
+          <div class="m-1 h-48 bg-white overflow-auto" id="slcd_class"></div>
+        </div>
+      </div>
+      <div class="m-1">
+        <button onclick="search_words('p', 'sc_top')" id="button_search class"
+          class="text-white bg-blue-500 rounded hover:bg-blue-600 inline-block p-1 pb-0 pt-0 mb-1">検索</button>
+        <input class="w-full" type="text" id="search_word" value="">
+      </div>
+      <div class="h-64 w-full bg-indigo-100 border-4 m-1 overflow-y-auto" id="class_list">
+        <div class="m-1" id="tailwindClass"></div>
+      </div>
+      <a href="https://tailwind.build/classes" target="_blank">tailwind classList</a>
+    </div>
+  </div>
+</body>
+<script src="../js/import.js"></script>
+
+</html>
