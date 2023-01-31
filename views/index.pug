@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  .flex.justify-center.text-4xl
-    h このサイトはtailwindの操作を簡単に確認するためのサイトです。
-    p ほにゃらららららーーーーーー
+  .flex.justify-center.text-4xl.mt-24
+    p このサイトはtailwindの操作を簡単に確認するためのサイトです。
+      br 
+      | ほにゃらららららーーーーーー
   - var hasCreate = (creates == undefined ? false : creates.length > 0)
   if hasCreate
     a(href="/create") 作成
