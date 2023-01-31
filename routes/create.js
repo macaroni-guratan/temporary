@@ -12,7 +12,7 @@ router.get('/new', authenticationEnsurer, csrfProtection, (req, res, next) => {
   res.render('new', { user: req.user, csrfToken: req.csrfToken() });
 });
 
-router.post('/', authenticationEnsurer, csrfProtection, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   const createId = uuidv4();
   const updatedAt = new Date();
   await Creates.create({
