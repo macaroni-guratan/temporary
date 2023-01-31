@@ -43,10 +43,10 @@ passport.use(new GitHubStrategy({
   }
 ));
 
-var indexRouter = require('./routes/index');
-const loginRouter = require('./routes/login');
-const logoutRouter = require('./routes/logout');
-const createRouter = require('./routes/create');
+var indexRouter = require('./routes/index.js');
+const loginRouter = require('./routes/login.js');
+const logoutRouter = require('./routes/logout.js');
+const createRouter = require('./routes/create.js');
 
 var app = express();
 app.use(helmet());
