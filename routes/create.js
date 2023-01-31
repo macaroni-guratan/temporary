@@ -22,7 +22,7 @@ router.post('/', authenticationEnsurer, csrfProtection, async (req, res, next) =
     createdBy: req.user.id,
     updatedAt: updatedAt
   });
-  createCandidatesAndRedirect(parseCandidateNames(req), createId, res);
+  res.render('create');
 });
 
 router.get('/:createId', authenticationEnsurer, async (req, res, next) => {

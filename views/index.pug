@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .flex.justify-center
+    a(href="/create") 作成
+  - var hasCreate = (creates == undefined ? false : creates.length > 0)
+  if hasCreate
+    table#tableList.flex.justify-center.text-4xl
+      tr
+        th 名前
+        th 更新日時
+      each create in creates
+        tr
+          td
+            a(href=`/create/${creates.createId}`) #{creates.createName}
+          td #{creates.formattedUpdatedAt}

@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .flex.h-full.w-full
+    .w-full.border-4.m-1.overflow-auto
+      #makeArea.w-auto.m-1.flex.flex-grow.flex-wrap.bg-red-300
+        #block0.flex.w-full.flex-wrap.justify-center.bg-white.border-4
+    #maker.mt-1.bg-indigo-300.overflow-y-auto(class='w-1/6')
+      .border-4.m-1
+        .m-1
+          button.mb-1.text-white.bg-gray-500.rounded.w-full(onclick='preview()' class='hover:bg-gray-600') プレビュー
+          button.text-white.bg-blue-500.rounded.w-full(onclick='addDiv()' class='hover:bg-blue-600') エリア作成
+          div
+            h.m-1.text-white 選択エリア
+            select#slc_div.w-full.rounded
+              option(value='block0') 初期 block0
+            button.my-1.text-white.bg-red-500.rounded.w-full(onclick='deleteDiv()' class='hover:bg-red-600') 削除
+      .border-4.m-1
+        .m-1
+          button.my-1.text-white.bg-blue-500.rounded.w-full(onclick='makeAreas()' class='hover:bg-blue-600') 作成
+          .mt-1.mb-1.w-full.flex.item-center
+            #tmp_class_menu.m-1.mb-0.h-3.bg-blue-300(class='w-1/3' onclick="selectMenu('tmp_class')")
+            #tmp_class1_menu.m-1.mb-0.h-3.bg-blue-200(class='w-1/3 hover:bg-blue-400' onclick="selectMenu('tmp_class1')")
+            #tmp_class2_menu.m-1.mb-0.h-3.bg-blue-200(class='w-1/3 hover:bg-blue-400' onclick="selectMenu('tmp_class2')")
+          #tmp_class.m-1.h-48.bg-white.overflow-y-auto.flex.flex-wrap
+          #tmp_class1.m-1.h-48.bg-white.overflow-y-auto.flex.flex-wrap.hidden
+          #tmp_class2.m-1.h-48.bg-white.overflow-y-auto.flex.flex-wrap.hidden
+          button.my-1.text-white.bg-red-500.rounded.w-full(onclick='deleteArea()' class='hover:bg-red-600') 削除
+          #slcd_class.m-1.h-48.bg-white.overflow-auto
+      .m-1
+        button.text-white.bg-blue-500.rounded.inline-block.p-1.pb-0.pt-0.mb-1(onclick="search_words('p', 'sc_top')" id='button_search class' class='hover:bg-blue-600') 検索
+        input#search_word.w-full(type='text' value='')
+      #class_list.h-64.w-full.bg-indigo-100.border-4.m-1.overflow-y-auto
+        #tailwindClass.m-1
+      a(href='https://tailwind.build/classes' target='_blank') tailwind classList
+  script(src='../js/import.js')

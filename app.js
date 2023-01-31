@@ -43,19 +43,20 @@ passport.use(new GitHubStrategy({
   }
 ));
 
-var indexRouter = require('./routes/index.js');
-const loginRouter = require('./routes/login.js');
-const logoutRouter = require('./routes/logout.js');
-const createRouter = require('./routes/create.js');
+var indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
+const createRouter = require('./routes/create');
 
 var app = express();
-app.use(helmet());
+//app.use(helmet());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
