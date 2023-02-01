@@ -18,7 +18,7 @@ router.post('/', async (req, res, next) => {
   const updatedAt = new Date();
   await Creates.create({
     createId: createId,
-    createName: req.body.createsName.slice(0, 255) || '（名称未設定）',
+    createName: req.body.createName.slice(0, 255) || '（名称未設定）',
     html: req.body.html,
     createdBy: req.user.id,
     updatedAt: updatedAt
