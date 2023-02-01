@@ -21,6 +21,11 @@ router.get('/', async (req, res, next) => {
     creates.forEach((creates) => {
       creates.formattedUpdatedAt = dayjs(schedule.updatedAt).tz('Asia/Tokyo').format('YYYY/MM/DD HH:mm');
     });
+    res.render('index', {
+      title: title,
+      user: req.user,
+      schedules: schedules
+    });
   } else {
     res.render('index', { title: title, user: req.user });
   }

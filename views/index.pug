@@ -5,9 +5,9 @@ block content
     p このサイトはtailwindの操作を簡単に確認するためのサイトです。
       br 
       | ほにゃらららららーーーーーー
-  - var hasCreate = (creates == undefined ? false : creates.length > 0)
+    a(href="/create/new") 作成
+  - var hasCreate = creates.length > 0
   if hasCreate
-    a(href="/create") 作成
     table#tableList.flex.justify-center.text-4xl
       tr
         th 名前
