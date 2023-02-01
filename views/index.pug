@@ -5,7 +5,8 @@ block content
     p このサイトはtailwindの操作を簡単に確認するためのサイトです。
       br 
       | ほにゃらららららーーーーーー
-    a(href="/create/new") 作成
+    p
+      a(href="/create/new").text-6xl 作成
   script.
     var hasCreate = (creates == "undefined" ? false : creates.length > 0)
   if hasCreate

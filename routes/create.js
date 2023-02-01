@@ -14,20 +14,16 @@ router.get('/new', authenticationEnsurer, csrfProtection, (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-  res.render('index', { title: title, user: req.user });
   const createId = uuidv4();
   const updatedAt = new Date();
   await Creates.create({
     createId: createId,
-    createName: tmpdesu,
+    createName: req.body.scheduleName.slice(0, 255) || '（名称未設定）',
     html: req.body.html,
     createdBy: req.user.id,
     updatedAt: updatedAt
   });
 });
-router.get('/', authenticationEnsurer, csrfProtection,  async (req, res, next) => {
-  res.render('create');
-})
 
 router.get('/:createId', authenticationEnsurer, async (req, res, next) => {
   const creates = await Creates.findOne({
@@ -53,7 +49,7 @@ router.get('/:createId', authenticationEnsurer, async (req, res, next) => {
   }
 });
 
-router.get('/:createId/edit', authenticationEnsurer, csrfProtection, async (req, res, next) => {
+router.get('/create', authenticationEnsurer, csrfProtection, async (req, res, next) => {
   const creates = await Creates.findOne({
     where: {
       createId: req.params.createId

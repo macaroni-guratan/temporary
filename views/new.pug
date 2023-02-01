@@ -3,7 +3,7 @@ extends layout
 block content
   form(method="post", action="/create")
     input(type="hidden" name="_csrf" value!=csrfToken)
-    div
-      label(for="createName") 名前
-      input(type="text" name="createName")#createName
-    button(type="submit") 作成する
+    div.flex.justify-center
+      label(for="createName").mt-12.text-4xl 名前
+      input(type="text" name="createName")#createName.border-4.border-blue-500
+    button(type="submit"href="/create").text-4xl 作成する
