@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const User = require('../models/user');
 const csrf = require('csurf');
 const Creates = require('../models/creates');
+const { ajaxTransport } = require('jquery');
 const csrfProtection = csrf({ cookie: true });
 
 router.get('/new', authenticationEnsurer, csrfProtection, (req, res, next) => {
@@ -13,17 +14,20 @@ router.get('/new', authenticationEnsurer, csrfProtection, (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
+  res.render('index', { title: title, user: req.user });
   const createId = uuidv4();
   const updatedAt = new Date();
   await Creates.create({
     createId: createId,
-    createName: req.body.createName.slice(0, 255) || '（名称未設定）',
+    createName: tmpdesu,
     html: req.body.html,
     createdBy: req.user.id,
     updatedAt: updatedAt
   });
-  res.render('create');
 });
+router.get('/', async (req, res, next) => {
+  res.render('create');
+})
 
 router.get('/:createId', authenticationEnsurer, async (req, res, next) => {
   const creates = await Creates.findOne({

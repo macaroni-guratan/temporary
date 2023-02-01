@@ -1,5 +1,3 @@
-
-
 function deleteClass(path) {
   classFlag.splice(classFlag.indexOf(path), 1);
   document.getElementById(`${tailwind_class[path][0]}`).classList.add("hidden");
