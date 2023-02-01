@@ -4,6 +4,8 @@ block content
   form(method="post", action="/create")
     input(type="hidden" name="_csrf" value!=csrfToken)
     div.flex.justify-center
-      label(for="createName").mt-12.text-4xl 名前
-      input(type="text" name="createName")#createName.border-4.border-blue-500
-    button(type="submit"href="/create").text-4xl 作成する
+      .mt-12.text-4xl
+        label(for="createName") 名前
+        input(type="text" name="createName")#createName.border-4.border-blue-500
+      .text-4xl
+        button(type="submit"href="/create") 作成する
