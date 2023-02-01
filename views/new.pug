@@ -3,10 +3,10 @@ extends layout
 block content
   form(method="post", action="/create")
     input(type="hidden" name="_csrf" value!=csrfToken)
-    .flex.justify-center
-      .mt-12.text-4xl
-        label(for="createName") 名前
-        .border-4.border-blue-500
-          input(type="text" name="createName")#createName
-      .text-4xl.mt-6
-        a(href="/create/edit").bg-indigo-300  作成する
+    p.mt-12 今の所特に意味はありません
+    .text-4xl
+      label(for="createName") 名前
+      .flex.justify-center
+        input(type="text" name="createName")#createName.border-4.border-blue-500
+    .text-4xl.mt-6
+      a(href="/create/edit").bg-indigo-300.rounded  作成する

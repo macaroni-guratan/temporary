@@ -8,7 +8,7 @@ block content
     #maker.mt-1.bg-indigo-300.overflow-y-auto(class='w-1/6')
       .border-4.m-1
         .m-1
-          button.mb-1.text-white.bg-gray-500.rounded.w-full(onclick='saveHTML()' class='hover:bg-gray-600') 保存
+          //button.mb-1.text-white.bg-gray-500.rounded.w-full(onclick='saveHTML()' class='hover:bg-gray-600') 保存
           button.text-white.bg-blue-500.rounded.w-full(onclick='addDiv()' class='hover:bg-blue-600') エリア作成
           div
             h.m-1.text-white 選択エリア
@@ -17,11 +17,16 @@ block content
             button.my-1.text-white.bg-red-500.rounded.w-full(onclick='deleteDiv()' class='hover:bg-red-600') 削除
       .border-4.m-1
         .m-1
+          h 作成時のクラス
           button.my-1.text-white.bg-blue-500.rounded.w-full(onclick='makeAreas()' class='hover:bg-blue-600') 作成
+          div.flex
+            .m-1(class='w-1/3') 1
+            .m-1(class='w-1/3') 2
+            .m-1(class='w-1/3') 3
           .mt-1.mb-1.w-full.flex.item-center
-            #tmp_class_menu.m-1.mb-0.h-3.bg-blue-300(class='w-1/3' onclick="selectMenu('tmp_class')")
-            #tmp_class1_menu.m-1.mb-0.h-3.bg-blue-200(class='w-1/3 hover:bg-blue-400' onclick="selectMenu('tmp_class1')")
-            #tmp_class2_menu.m-1.mb-0.h-3.bg-blue-200(class='w-1/3 hover:bg-blue-400' onclick="selectMenu('tmp_class2')")
+            #tmp_class_menu.m-1.mt-0.mb-0.h-3.bg-blue-300(class='w-1/3' onclick="selectMenu('tmp_class')")
+            #tmp_class1_menu.m-1.mt-0.mb-0.h-3.bg-blue-200(class='w-1/3 hover:bg-blue-400' onclick="selectMenu('tmp_class1')")
+            #tmp_class2_menu.m-1.mt-0.mb-0.h-3.bg-blue-200(class='w-1/3 hover:bg-blue-400' onclick="selectMenu('tmp_class2')")
           #tmp_class.m-1.h-48.bg-white.overflow-y-auto.flex.flex-wrap
           #tmp_class1.m-1.h-48.bg-white.overflow-y-auto.flex.flex-wrap.hidden
           #tmp_class2.m-1.h-48.bg-white.overflow-y-auto.flex.flex-wrap.hidden

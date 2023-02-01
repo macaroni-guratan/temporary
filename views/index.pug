@@ -3,9 +3,11 @@ extends layout
 block content
   .flex.justify-center.text-4xl.mt-32
     a(href="/create/new").text-6xl.bg-indigo-300.bg-indigo-300.p-1.rounded 作成
-  p.mt-16.flex.justify-center.text-4xl このサイトはtailwindの操作を簡単に確認するためのサイトです。
+  p.mt-16.flex.justify-center.text-5xl このサイトはtailwindのシミュレーションをするサイトです。
      br 
-     | ほにゃらららららーーーーーー
+     | タグを複数個選択するものやその他使えない選択肢があります。
+     br
+     | 青い背景の部分を押して行くと試す画面に行けます。
   script.
     if(typeof creates != "undefined"){
       var hasCreate = creates.length > 0
