@@ -18,7 +18,7 @@ router.post('/', async (req, res, next) => {
   const updatedAt = new Date();
   await Creates.create({
     createId: createId,
-    createName: req.body.scheduleName.slice(0, 255) || '（名称未設定）',
+    createName: req.body.createsName.slice(0, 255) || '（名称未設定）',
     html: req.body.html,
     createdBy: req.user.id,
     updatedAt: updatedAt
@@ -26,22 +26,22 @@ router.post('/', async (req, res, next) => {
 });
 
 router.get('/:createId', authenticationEnsurer, async (req, res, next) => {
-  const creates = await Creates.findOne({
+  const tmpcreates = await Creates.findOne({
     include: [
       {
         model: User,
         attributes: ['userId', 'username']
       }],
     where: {
-      creates: req.params.createId
+      tmpcreates: req.params.createId
     },
     order: [['updatedAt', 'DESC']]
   });
   res.render('created', {
     user: req.user,
-    creates: creates,
+    creates: tmpcreates,
   });
-  if (creates) {
+  if (tmpcreates) {
   } else {
     const err = new Error('指定された予定は見つかりません');
     err.status = 404;

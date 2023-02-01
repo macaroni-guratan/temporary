@@ -8,12 +8,12 @@ block content
     p
       a(href="/create/new").text-6xl 作成
   script.
-    var hasCreate = (creates == "undefined" ? false : creates.length > 0)
+    var hasCreate = creates.length > 0
   if hasCreate
     table#tableList.flex.justify-center.text-4xl
       tr
         th 名前
-        th 更新日時
+        th 日時
       each create in creates
         tr
           td
