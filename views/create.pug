@@ -8,7 +8,7 @@ block content
     #maker.mt-1.bg-indigo-300.overflow-y-auto(class='w-1/6')
       .border-4.m-1
         .m-1
-          button.mb-1.text-white.bg-gray-500.rounded.w-full(onclick='preview()' class='hover:bg-gray-600') プレビュー
+          button.mb-1.text-white.bg-gray-500.rounded.w-full(onclick='saveHTML()' class='hover:bg-gray-600') 保存
           button.text-white.bg-blue-500.rounded.w-full(onclick='addDiv()' class='hover:bg-blue-600') エリア作成
           div
             h.m-1.text-white 選択エリア
@@ -322,4 +322,15 @@ block content
     return "" + match_word + "";
     });
     }
+    }
+
+    function saveHTML(){
+      let makehtml = document.getElementById("makeArea");
+      creates = await creates.update({
+        createId: creates.createId,
+        createName: creates.createname
+        html: makehtml;
+        createdBy: req.user.id,
+        updatedAt: updatedAt
+      });
     }

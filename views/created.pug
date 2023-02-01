@@ -6,6 +6,5 @@ block content
       h4 #{creates.creatName}
       p 作成者: #{creates.user.username}
   - var isMine = parseInt(user.id) === create.user.userId
-  if isMine
-    div
-      a(href=`/create/${creates.createId}/edit`).btn.btn-info 編集する
+script. 
+  console.log(creates.html)

@@ -13,19 +13,19 @@ dayjs.extend(timezone);
 router.get('/', async (req, res, next) => {
   const title = 'tailwind シミュレーター';
   if (req.user) {
-    const creates = await Creates.findAll({
+    const tmpcreates = await Creates.findAll({
       where: {
         createdBy: req.user.id
       },
       order: [['updatedAt', 'DESC']]
     });
-    creates.forEach((creates) => {
-      creates.formattedUpdatedAt = dayjs(schedule.updatedAt).tz('Asia/Tokyo').format('YYYY/MM/DD HH:mm');
+    tmpcreates.forEach((creates) => {
+      tmpcreates.formattedUpdatedAt = dayjs(tmpcreates.updatedAt).tz('Asia/Tokyo').format('YYYY/MM/DD HH:mm');
     });
     res.render('index', {
       title: title,
       user: req.user,
-      schedules: creates
+      creates: tmpcreates
     });
   } else {
     res.render('index', { title: title, user: req.user });
