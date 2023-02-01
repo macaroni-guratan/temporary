@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
     updatedAt: updatedAt
   });
 });
-router.get('/', async (req, res, next) => {
+router.get('/', authenticationEnsurer, csrfProtection,  async (req, res, next) => {
   res.render('create');
 })
 
@@ -40,6 +40,10 @@ router.get('/:createId', authenticationEnsurer, async (req, res, next) => {
       creates: req.params.createId
     },
     order: [['updatedAt', 'DESC']]
+  });
+  res.render('schedule', {
+    user: req.user,
+    creates: creates,
   });
   if (creates) {
   } else {
@@ -56,7 +60,7 @@ router.get('/:createId/edit', authenticationEnsurer, csrfProtection, async (req,
     }
   });
   if (isMine(req, creates)) { // 作成者のみが編集フォームを開ける
-    res.render('edit', {
+    res.render('create', {
       user: req.user,
       creates: creates,
       csrfToken: req.csrfToken()
