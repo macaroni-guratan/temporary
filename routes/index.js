@@ -13,7 +13,7 @@ dayjs.extend(timezone);
 router.get('/', async (req, res, next) => {
   const title = 'tailwind シミュレーター';
   if (req.user) {
-    const creates = await Creates .findAll({
+    const creates = await Creates.findAll({
       where: {
         createdBy: req.user.id
       },
