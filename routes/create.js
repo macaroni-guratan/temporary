@@ -41,7 +41,7 @@ router.get('/:createId', authenticationEnsurer, async (req, res, next) => {
     },
     order: [['updatedAt', 'DESC']]
   });
-  res.render('schedule', {
+  res.render('created', {
     user: req.user,
     creates: creates,
   });
