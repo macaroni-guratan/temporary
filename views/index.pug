@@ -6,7 +6,8 @@ block content
       br 
       | ほにゃらららららーーーーーー
     a(href="/create/new") 作成
-  - var hasCreate = creates.length > 0
+  script.
+    var hasCreate = (creates == "undefined" ? false : creates.length > 0)
   if hasCreate
     table#tableList.flex.justify-center.text-4xl
       tr
