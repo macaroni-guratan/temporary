@@ -326,10 +326,9 @@ block content
 
     function saveHTML(){
       let makehtml = document.getElementById("makeArea");
-      creates = await creates.update({
+      creates.update({
         createId: creates.createId,
-        createName: creates.createname
-        html: makehtml;
+        createName: creates.createname,
         createdBy: req.user.id,
         updatedAt: updatedAt
       });

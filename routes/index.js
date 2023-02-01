@@ -12,24 +12,17 @@ dayjs.extend(timezone);
 /* GET home page. */
 router.get('/', async (req, res, next) => {
   const title = 'tailwind シミュレーター';
-  if (req.user) {
-    const tmpcreates = await Creates.findAll({
-      where: {
-        createdBy: req.user.id
-      },
-      order: [['updatedAt', 'DESC']]
-    });
-    tmpcreates.forEach((creates) => {
-      tmpcreates.formattedUpdatedAt = dayjs(tmpcreates.updatedAt).tz('Asia/Tokyo').format('YYYY/MM/DD HH:mm');
-    });
-    res.render('index', {
-      title: title,
-      user: req.user,
-      creates: tmpcreates
-    });
-  } else {
-    res.render('index', { title: title, user: req.user });
-  }
+  const tmpcreates = await Creates.findAll({
+    order: [['updatedAt', 'DESC']]
+  });
+  tmpcreates.forEach((creates) => {
+    creates.formattedUpdatedAt = dayjs(creates.updatedAt).tz('Asia/Tokyo').format('YYYY/MM/DD HH:mm');
+  });
+  res.render('index', {
+    title: title,
+    user: req.user,
+    creates: tmpcreates
+  });
 });
 
 module.exports = router;

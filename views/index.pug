@@ -1,14 +1,15 @@
 extends layout
 
 block content
-  .flex.justify-center.text-4xl.mt-24
-    p このサイトはtailwindの操作を簡単に確認するためのサイトです。
-      br 
-      | ほにゃらららららーーーーーー
-    p
-      a(href="/create/new").text-6xl 作成
+  .flex.justify-center.text-4xl.mt-32
+    a(href="/create/new").text-6xl.bg-indigo-300.bg-indigo-300.p-1.rounded 作成
+  p.mt-16.flex.justify-center.text-4xl このサイトはtailwindの操作を簡単に確認するためのサイトです。
+     br 
+     | ほにゃらららららーーーーーー
   script.
-    var hasCreate = creates.length > 0
+    if(typeof creates != "undefined"){
+      var hasCreate = creates.length > 0
+    }
   if hasCreate
     table#tableList.flex.justify-center.text-4xl
       tr

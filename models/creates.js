@@ -13,10 +13,6 @@ const Creates = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-    html: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
     createdBy: {
       type: DataTypes.INTEGER,
       allowNull: false
