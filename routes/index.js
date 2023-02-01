@@ -5,6 +5,7 @@ const router = express.Router();
 const dayjs = require('dayjs');
 const utc = require('dayjs/plugin/utc');
 const timezone = require('dayjs/plugin/timezone');
+const Creates = require('../models/creates');
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -12,7 +13,7 @@ dayjs.extend(timezone);
 router.get('/', async (req, res, next) => {
   const title = 'tailwind シミュレーター';
   if (req.user) {
-    const Creates = await Creates.findAll({
+    const creates = await Creates .findAll({
       where: {
         createdBy: req.user.id
       },
@@ -24,7 +25,7 @@ router.get('/', async (req, res, next) => {
     res.render('index', {
       title: title,
       user: req.user,
-      schedules: schedules
+      schedules: creates
     });
   } else {
     res.render('index', { title: title, user: req.user });
